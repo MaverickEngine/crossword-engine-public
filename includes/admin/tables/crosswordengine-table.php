@@ -30,7 +30,7 @@ class CrosswordEngineTable extends WP_List_Table {
         $data = $this->table_data();
         usort( $data, array( &$this, 'sort_data' ) );
 
-        $perPage = 2;
+        $perPage = 30;
         $currentPage = $this->get_pagenum();
         $totalItems = count($data);
         
@@ -173,8 +173,8 @@ class CrosswordEngineTable extends WP_List_Table {
     private function sort_data( $a, $b )
     {
         // Set defaults
-        $orderby = 'title';
-        $order = 'asc';
+        $orderby = 'date';
+        $order = 'desc';
 
         // If orderby is set, use this as the sort column
         if(!empty($_GET['orderby']))

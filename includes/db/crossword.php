@@ -45,11 +45,8 @@ class CrosswordEngineCrossword {
         if (!$this->crossword_title) {
             return new WP_Error("crossword_title_empty", "Crossword title cannot be empty.");
         }
-        if (!$this->crossword_editor) {
-            return new WP_Error("crossword_editor_empty", "Crossword editor cannot be empty.");
-        }
-        if (!$this->crossword_author) {
-            return new WP_Error("crossword_author_empty", "Crossword author cannot be empty.");
+        if (!$this->crossword_date) {
+            return new WP_Error("crossword_date_empty", "Crossword date cannot be empty.");
         }
         if (!$this->crossword_xd_data) {
             return new WP_Error("crossword_xd_data", "Crossword XD data cannot be empty.");
@@ -86,7 +83,7 @@ class CrosswordEngineCrossword {
         // Alert success
         if ($result) {
             $this->load();
-            return true;
+            return $this;
         } else {
             return false;
         }
