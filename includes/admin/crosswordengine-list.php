@@ -57,19 +57,19 @@ class CrosswordEngineList {
     public function save_crossword($id, $crossword) {
         require_once(plugin_dir_path( dirname( __FILE__ ) ).'db/crossword.php');
         $crossword = new CrosswordEngineCrossword($id);
-        $crossword->set("title", $_POST['crossword_title']);
-        $crossword->set("author", $_POST['crossword_author']);
-        $crossword->set("editor", $_POST['crossword_editor']);
-        $crossword->set("description", $_POST['crossword_description']);
-        $crossword->set("date", $_POST['crossword_date']);
+        $crossword->set("title", $_POST['title']);
+        $crossword->set("author", $_POST['author']);
+        $crossword->set("editor", $_POST['editor']);
+        $crossword->set("description", $_POST['description']);
+        $crossword->set("date", $_POST['date']);
         // Open uploaded file
-        $file = $_FILES['crossword_xd_file'];
+        $file = $_FILES['xd_file'];
         if ($file['tmp_name']) {
             $file_tmp_name = $file['tmp_name'];
             $xd_data = file_get_contents($file_tmp_name);
             $crossword->set("xd_data", $xd_data);
         } else {
-            $crossword->set("xd_data", $_POST['crossword_xd_data']);
+            $crossword->set("xd_data", $_POST['xd']);
         }
         $result = $crossword->save();
         // if result is type error, show error message

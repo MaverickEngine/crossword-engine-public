@@ -5,7 +5,7 @@
  * Description: A Crossword System for Wordpress
  * Author: Daily Maverick, Jason Norwood-Young
  * Author URI: https://dailymaverick.co.za
- * Version: 0.1.0
+ * Version: 0.1.1
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * WC requires at least: 5.8.0
