@@ -129,7 +129,7 @@ class CrosswordEngineTable extends WP_List_Table {
      */
     public function column_title($item) {
         $edit_link = admin_url( 'admin.php?page=crosswordengine&amp;action=edit&amp;edit=' .  $item["id"]  );
-        $view_link = get_permalink( $item["title"] ); 
+        $view_link =  admin_url( 'admin.php?page=crosswordengine&amp;action=view&amp;view=' .  $item["id"]  );
         $output    = '';
  
         // Title.

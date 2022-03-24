@@ -28,8 +28,13 @@ class CrosswordEngineCreate {
         if (isset($_POST['submit'])) {
             $this->save_crossword();
         }
-        wp_enqueue_style('crosswordengine-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css');
-        wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.0.2", true );
+        if (get_option('crosswordengine_developer_mode')) {
+            wp_enqueue_style('crosswordengine-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.0.3");
+            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.0.3", true );
+        } else {
+            wp_enqueue_style('crosswordengine-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.min.css', [], "0.0.3");
+            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.min.js", [], "0.0.3", true );
+        }
         $empty_xd = "
 
         A1.  ~           

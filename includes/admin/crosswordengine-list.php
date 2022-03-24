@@ -27,12 +27,16 @@ class CrosswordEngineList {
         // Check for edit
         if (isset($_GET['edit'])) {
             $this->edit_crossword($_GET['edit']);
-        } else {
-            require_once(plugin_dir_path( dirname( __FILE__ ) ).'admin/tables/crosswordengine-table.php');
-            $crosswordengineTable = new CrosswordEngineTable();
-            $crosswordengineTable->prepare_items();
-            require_once plugin_dir_path( dirname( __FILE__ ) ).'admin/views/list.php';
+            return;
         }
+        if (isset($_GET["view"])) {
+            $this->view_crossword($_GET["view"]);
+            return;
+        }
+        require_once(plugin_dir_path( dirname( __FILE__ ) ).'admin/tables/crosswordengine-table.php');
+        $crosswordengineTable = new CrosswordEngineTable();
+        $crosswordengineTable->prepare_items();
+        require_once plugin_dir_path( dirname( __FILE__ ) ).'admin/views/list.php';
     }
 
     public function edit_crossword($id) {
@@ -46,6 +50,13 @@ class CrosswordEngineList {
         $script = 'var xd = ' . json_encode($crossword->get("xd_data")) . '; ';
         wp_add_inline_script('crosswordengine-script', $script, 'before');
         require_once plugin_dir_path( dirname( __FILE__ ) ).'admin/views/edit.php';
+    }
+
+    public function view_crossword($id) {
+        require_once(plugin_dir_path( dirname( __FILE__ ) ).'db/crossword.php');
+        require_once(plugin_dir_path( dirname( __FILE__ ) ).'frontend/crosswordengine-view.php');
+        $view = new CrosswordEngineView($id);
+        $view->render(true);
     }
 
     public function register_settings() {
