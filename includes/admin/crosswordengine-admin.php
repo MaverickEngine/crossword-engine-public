@@ -17,7 +17,7 @@ class CrosswordEngineAdmin {
         add_menu_page(
             'CrosswordEngine',
 			'CrosswordEngine',
-			'manage_options',
+			'edit_posts',
 			'crosswordengine',
 			null,
             "dashicons-grid-view",

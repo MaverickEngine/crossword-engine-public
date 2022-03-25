@@ -14,14 +14,14 @@ class CrosswordEngineCreate {
             'crosswordengine',
 			'Add New Crossword',
 			'Add New',
-			'manage_options',
+			'edit_posts',
 			'crosswordengine_create',
 			[ $this, 'crosswordengine_create' ]
 		);
     }
 
     public function crosswordengine_create() {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('edit_posts')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
         // Save the new crossword
