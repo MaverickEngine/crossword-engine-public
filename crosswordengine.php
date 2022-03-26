@@ -5,7 +5,7 @@
  * Description: A Crossword System for Wordpress
  * Author: Daily Maverick, Jason Norwood-Young
  * Author URI: https://dailymaverick.co.za
- * Version: 0.1.1
+ * Version: 0.1.2
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * WC requires at least: 5.8.0
@@ -37,10 +37,10 @@ function crosswordengine_database_setup() {
 add_action( 'init', 'crosswordengine_database_setup', 2 );
 
 // Register custom block
-function create_block_crosswordengine_block_init() {
-	register_block_type(plugin_dir_path( __FILE__ ) . 'includes/gutenblock/build'  );
-}
-add_action( 'init', 'create_block_crosswordengine_block_init' );
+// function create_block_crosswordengine_block_init() {
+// 	register_block_type(plugin_dir_path( __FILE__ ) . 'includes/gutenblock/build'  );
+// }
+// add_action( 'init', 'create_block_crosswordengine_block_init' );
 
 // Register shortcodes
 function create_shortcode_crosswordengine_init() {
@@ -49,7 +49,12 @@ function create_shortcode_crosswordengine_init() {
 }
 add_action( 'init', 'create_shortcode_crosswordengine_init' );
 
-// Register custom type
+// Register API
+function create_api_crosswordengine_init() {
+    require_once( plugin_dir_path( __FILE__ ) . 'includes/api/crosswordengine-api.php' );
+    new CrosswordEngineAPI();
+}
+add_action( 'init', 'create_api_crosswordengine_init' );
 
 // Embed javascript
 
