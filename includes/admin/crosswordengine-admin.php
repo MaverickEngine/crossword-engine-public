@@ -10,7 +10,8 @@ class CrosswordEngineAdmin {
         new CrosswordEngineCreate();
         require_once('crosswordengine-settings.php' );
         new CrosswordEngineSettings();
-        
+        require_once("crosswordengine-mediabutton.php");
+        new CrosswordEngineMediaButton();
     }
 
     function menu() {

@@ -101,4 +101,16 @@ class CrosswordEngineCrossword {
         );
         return $crossword_array;
     }
+
+    public function get_crossword_basics() {
+        $crossword_array = array(
+            "id" => $this->ID,
+            "date" => $this->crossword_date,
+            "modified" => $this->crossword_modified,
+            "title" => $this->crossword_title,
+            "editor" => $this->crossword_editor,
+            "author" => $this->crossword_author,
+        );
+        return $crossword_array;
+    }
 }

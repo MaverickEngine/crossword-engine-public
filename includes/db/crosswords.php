@@ -37,6 +37,14 @@ class CrosswordEngineCrosswords {
         }
         return $crosswords;
     }
+
+    public function get_crossword_list() {
+        $map_crossword = function ($crossword) {
+            return $crossword->get_crossword_basics();
+        };
+        $crosswords = array_map($map_crossword, $this->get_crosswords());
+        return $crosswords;
+    }
 }
 
 ?>
