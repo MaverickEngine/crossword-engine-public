@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CrosswordEngine (Develoment)
+ * Plugin Name: CrosswordEngine
  * Plugin URI: https://github.com/MaverickEngine/crossword-engine
  * Description: A Crossword System for Wordpress
  * Author: Daily Maverick, Jason Norwood-Young
