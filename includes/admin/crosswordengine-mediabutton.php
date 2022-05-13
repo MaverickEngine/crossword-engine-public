@@ -11,9 +11,9 @@ class CrosswordEngineMediaButton {
 
     public function crosswordengine_media_button_js() {
         if (get_option('crosswordengine_developer_mode')) {
-            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.inserter.js", [], "0.0.1", true );
+            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.inserter.js", [], "0.0.4", true );
         } else {
-            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.inserter.min.js", [], "0.0.1", true );
+            wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.inserter.min.js", [], "0.0.4", true );
         }
     }
 }

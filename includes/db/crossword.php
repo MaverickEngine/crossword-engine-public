@@ -25,7 +25,11 @@ class CrosswordEngineCrossword {
     }
 
     public function get($key) {
-        return $this->{"crossword_" . $key};
+        if (isset($this->{"crossword_" . $key})) {
+            return $this->{"crossword_" . $key};
+        } else {
+            return null;
+        }
     }
 
     protected function load() {
