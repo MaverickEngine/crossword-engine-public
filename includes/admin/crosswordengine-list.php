@@ -45,8 +45,8 @@ class CrosswordEngineList {
         if (isset($_POST['submit'])) {
             $crossword = $this->save_crossword($id, $crossword);
         }
-        wp_enqueue_style('crosswordengine-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.0.4");
-        wp_enqueue_script( "crosswordengine-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.0.4", true );
+        wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.0.4");
+        wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.0.4", true );
         $script = 'var xd = ' . json_encode($crossword->get("xd_data")) . '; ';
         wp_add_inline_script('crosswordengine-script', $script, 'before');
         require_once plugin_dir_path( dirname( __FILE__ ) ).'admin/views/edit.php';
