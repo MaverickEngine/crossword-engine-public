@@ -22,7 +22,7 @@ class CrosswordEngineView {
             $crossword_html .= '<div class="crossword-author">Author: ' . $crossword->get('author') . '</div>';
         }
         $crossword_html .= '<div id="' . $random_id . '">Loading...</div>';
-        wp_add_inline_script( "crosswordengine-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
+        wp_add_inline_script( "crosswordengine-jxword-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
         return $crossword_html;
     }
 
