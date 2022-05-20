@@ -23,7 +23,6 @@ class CrosswordEngineView {
         }
         $crossword_html .= '<div id="' . $random_id . '">Loading...</div>';
         wp_add_inline_script( "crosswordengine-jxword-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
-        $crossword_html .= `\n<style>.in-article-action-1 { display: none; }\n#browsi_ad_0_ai_1_rc_0 { display: none; }</style>\n`;
         return $crossword_html;
     }
 
