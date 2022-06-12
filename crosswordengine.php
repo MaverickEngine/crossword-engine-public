@@ -2,14 +2,14 @@
 /**
  * Plugin Name: CrosswordEngine
  * Plugin URI: https://github.com/MaverickEngine/crossword-engine
- * Description: A Crossword System for Wordpress
+ * Description: MavEngine's CrosswordEngine is a professional, slick, cross-platform crossword puzzle creator and client for news publishers.
  * Author: Daily Maverick, Jason Norwood-Young
  * Author URI: https://dailymaverick.co.za
- * Version: 0.1.6
+ * Version: 0.1.7
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * WC requires at least: 5.8.0
- * Tested up to: 5.8.2
+ * Tested up to: 6.0
  *
  */
 if ( ! defined( 'ABSPATH' ) ) {

@@ -29,11 +29,11 @@ class CrosswordEngineCreate {
             $this->save_crossword();
         }
         if (get_option('crosswordengine_developer_mode')) {
-            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.0.4");
-            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.0.4", true );
+            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.1.7");
+            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.1.7", true );
         } else {
-            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.min.css', [], "0.0.4");
-            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.min.js", [], "0.0.4", true );
+            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.min.css', [], "0.1.7");
+            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.min.js", [], "0.1.7", true );
         }
         $empty_xd = "
 
@@ -71,6 +71,10 @@ class CrosswordEngineCreate {
         $crossword->set("author", $_POST['author']);
         $crossword->set("editor", $_POST['editor']);
         $crossword->set("xd_data", $_POST['xd']);
+        $crossword->set("copyright", $_POST['copyright']);
+        $crossword->set("difficulty", $_POST['difficulty']);
+        $crossword->set("type", $_POST['type']);
+        $crossword->set("size", $_POST['size']);
         $result = $crossword->save();
         // Redirect to the edit page
         // if result is type error, show error message

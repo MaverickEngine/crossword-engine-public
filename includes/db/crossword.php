@@ -17,6 +17,11 @@ class CrosswordEngineCrossword {
             $this->crossword_editor = "";
             $this->crossword_author = "";
             $this->crossword_xd_data = "";
+            $this->crossword_copyright = "";
+            $this->crossword_difficulty = "Medium";
+            $this->crossword_type = "Straight";
+            $this->crossword_public_submission = false;
+            $this->crossword_size = 15;
         }
     }
 
@@ -42,6 +47,11 @@ class CrosswordEngineCrossword {
         $this->crossword_editor = $crossword->crossword_editor;
         $this->crossword_author = $crossword->crossword_author;
         $this->crossword_xd_data = $crossword->crossword_xd_data;
+        $this->crossword_copyright = $crossword->crossword_copyright;
+        $this->crossword_difficulty = $crossword->crossword_difficulty;
+        $this->crossword_type = $crossword->crossword_type;
+        $this->crossword_public_submission = $crossword->crossword_public_submission;
+        $this->crossword_size = $crossword->crossword_size;
     }
 
     public function save() {
@@ -67,6 +77,11 @@ class CrosswordEngineCrossword {
                     'crossword_editor' => $this->crossword_editor,
                     'crossword_author' => $this->crossword_author,
                     'crossword_xd_data' => $this->crossword_xd_data,
+                    'crossword_copyright' => $this->crossword_copyright,
+                    'crossword_difficulty' => $this->crossword_difficulty,
+                    'crossword_type' => $this->crossword_type,
+                    'crossword_public_submission' => $this->crossword_public_submission,
+                    'crossword_size' => $this->crossword_size,
                 ],
                 [ 'ID' => $this->id ]
             );
@@ -80,6 +95,11 @@ class CrosswordEngineCrossword {
                     'crossword_editor' => $this->crossword_editor,
                     'crossword_author' => $this->crossword_author,
                     'crossword_xd_data' => $this->crossword_xd_data,
+                    'crossword_copyright' => $this->crossword_copyright,
+                    'crossword_difficulty' => $this->crossword_difficulty,
+                    'crossword_type' => $this->crossword_type,
+                    'crossword_public_submission' => $this->crossword_public_submission,
+                    'crossword_size' => $this->crossword_size,
                 ]
             );
             $this->id = $wpdb->insert_id;
@@ -97,11 +117,17 @@ class CrosswordEngineCrossword {
         $crossword_array = array(
             "id" => $this->ID,
             "date" => $this->crossword_date,
+            "created" => $this->crossword_created,
             "modified" => $this->crossword_modified,
             "title" => $this->crossword_title,
             "editor" => $this->crossword_editor,
             "author" => $this->crossword_author,
             "xd_data" => $this->crossword_xd_data,
+            "copyright" => $this->crossword_copyright,
+            "difficulty" => $this->crossword_difficulty,
+            "type" => $this->crossword_type,
+            "public_submission" => $this->crossword_public_submission,
+            "size" => $this->crossword_size,
         );
         return $crossword_array;
     }
@@ -110,10 +136,14 @@ class CrosswordEngineCrossword {
         $crossword_array = array(
             "id" => $this->ID,
             "date" => $this->crossword_date,
+            "created" => $this->crossword_created,
             "modified" => $this->crossword_modified,
             "title" => $this->crossword_title,
             "editor" => $this->crossword_editor,
             "author" => $this->crossword_author,
+            "size" => $this->crossword_size,
+            "difficulty" => $this->crossword_difficulty,
+            "type" => $this->crossword_type,
         );
         return $crossword_array;
     }

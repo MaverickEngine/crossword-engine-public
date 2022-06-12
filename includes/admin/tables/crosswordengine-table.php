@@ -34,7 +34,7 @@ class CrosswordEngineTable extends WP_List_Table {
         $currentPage = $this->get_pagenum();
         $totalItems = count($data);
         
-        $this->row_actions("edit", "delete");
+        $this->row_actions(["edit", "delete"]);
 
         $this->set_pagination_args( array(
             'total_items' => $totalItems,
@@ -61,6 +61,9 @@ class CrosswordEngineTable extends WP_List_Table {
             'title'  => 'Title',
             'editor' => 'Editor',
             'author' => 'Author',
+            'difficulty' => 'Difficulty',
+            'type' => 'Type',
+            'size' => 'Size',
         );
 
         return $columns;
@@ -115,6 +118,9 @@ class CrosswordEngineTable extends WP_List_Table {
             case 'id':
             // case 'title':
             case 'editor':
+            case 'size':
+            case 'difficulty':
+            case 'type':
             case 'author':
                 return $item[ $column_name ];
             case 'date':
@@ -160,7 +166,7 @@ class CrosswordEngineTable extends WP_List_Table {
      */
     protected function column_cb( $item ) {
         return sprintf(
-        '<label class="screen-reader-text" for="crossword_' . $item['id'] . '">' . sprintf( __( 'Select %s' ), $item['crossword_login'] ) . '</label>'
+        '<label class="screen-reader-text" for="crossword_' . $item['id'] . '">' . sprintf( __( 'Select Crossword %s' ), $item['title'] ) . '</label>'
         . "<input type='checkbox' name='crosswords[]' id='crossword_{$item['id']}' value='{$item['id']}' />"
         );
     }
