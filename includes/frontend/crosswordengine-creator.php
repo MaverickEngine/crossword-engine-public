@@ -6,11 +6,11 @@ class CrosswordEngineCreator {
 
     public function generate($meta = false) {
         if (get_option('crosswordengine_developer_mode')) {
-            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], "0.1.7");
-            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], "0.1.7", true );
+            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.css', [], CROSSWORDENGINE_VERSION);
+            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.js", [], CROSSWORDENGINE_VERSION, true );
         } else {
-            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.min.css', [], "0.1.7");
-            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.min.js", [], "0.1.7", true );
+            wp_enqueue_style('crosswordengine-creator-style', plugin_dir_url( __FILE__ ) . '../../dist/crosswordengine.creator.min.css', [], CROSSWORDENGINE_VERSION);
+            wp_enqueue_script( "crosswordengine-creator-script", plugin_dir_url(__FILE__) . "../../dist/crosswordengine.creator.min.js", [], CROSSWORDENGINE_VERSION, true );
         }
         $empty_xd = "
 
