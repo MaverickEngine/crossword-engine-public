@@ -4,6 +4,6 @@
         <?php settings_errors(); ?>
         <hr>
         <div id="crosswordengine-creator-container"></div>
-        <?=	submit_button(); ?>
+        <?php submit_button(); ?>
     </form>
 </div>

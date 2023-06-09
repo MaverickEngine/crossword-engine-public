@@ -22,7 +22,7 @@ class CrosswordEngineList {
 
     public function crosswordengine_list() {
         if (!current_user_can('edit_posts')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die('You do not have sufficient permissions to access this page.');
         }
         // Check for edit
         if (isset($_GET['edit'])) {

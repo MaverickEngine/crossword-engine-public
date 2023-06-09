@@ -22,7 +22,7 @@ class CrosswordEngineCreate {
 
     public function crosswordengine_create() {
         if (!current_user_can('edit_posts')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die('You do not have sufficient permissions to access this page.');
         }
         // Save the new crossword
         if (isset($_POST['submit'])) {

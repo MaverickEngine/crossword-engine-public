@@ -3,6 +3,7 @@
 class CrosswordEngineSettings {
     private $options = [
         "crosswordengine_developer_mode",
+        "crosswordengine_name",
     ];
     
     public function __construct() {
@@ -24,7 +25,7 @@ class CrosswordEngineSettings {
 
     public function crosswordengine_settings() {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die('You do not have sufficient permissions to access this page.');
         }
         require_once plugin_dir_path( dirname( __FILE__ ) ).'admin/views/settings.php';
     }
