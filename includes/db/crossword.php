@@ -11,8 +11,8 @@ class CrosswordEngineCrossword {
             $this->load();
         } else {
             $this->id = null;
-            $this->crossword_date = date("Y-m-d H:i:s");
-            $this->crossword_modified = date("Y-m-d H:i:s");
+            $this->crossword_date = gmdate("Y-m-d H:i:s");
+            $this->crossword_modified = gmdate("Y-m-d H:i:s");
             $this->crossword_title = "";
             $this->crossword_editor = "";
             $this->crossword_author = "";
@@ -39,8 +39,7 @@ class CrosswordEngineCrossword {
 
     protected function load() {
         global $wpdb;
-        $crossword_table_name = $wpdb->prefix . "crosswordengine_crosswords";
-        $crossword = $wpdb->get_row( "SELECT * FROM $crossword_table_name WHERE ID = $this->id" );
+        $crossword = $wpdb->get_row($wpdb->prepare( "SELECT * FROM {$wpdb->prefix}crosswordengine_crosswords WHERE ID = %d", $this->id));
         $this->crossword_date = $crossword->crossword_date;
         $this->crossword_modified = $crossword->crossword_modified;
         $this->crossword_title = $crossword->crossword_title;
@@ -67,7 +66,7 @@ class CrosswordEngineCrossword {
         }
         $crossword_table_name = $wpdb->prefix . "crosswordengine_crosswords";
         if ($this->id) {
-            $this->crossword_modified = date("Y-m-d H:i:s");
+            $this->crossword_modified = gmdate("Y-m-d H:i:s");
             $result = $wpdb->update(
                 $crossword_table_name,
                 [

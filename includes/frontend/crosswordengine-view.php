@@ -22,13 +22,16 @@ class CrosswordEngineView {
             $crossword_html .= '<div class="crossword-author">Author: ' . $crossword->get('author') . '</div>';
         }
         $crossword_html .= '<div id="' . $random_id . '">Loading...</div>';
+        $plugin_dir = plugin_dir_url( __FILE__ );
         wp_add_inline_script( "crosswordengine-jxword-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
         $product_name = esc_attr(get_option('crosswordengine_name'));
         wp_add_inline_script( "crosswordengine-jxword-script", "jxword_product_name=\"{$product_name}\";", "after" );
+        wp_add_inline_script( "crosswordengine-jxword-script", "jxword_completed_audio=\"{$plugin_dir}../../dist/audio/crossword_ditty.mp3\";", "after" );
         return $crossword_html;
     }
 
     public function render($meta = false) {
+        // phpcs:disable
         echo $this->generate($meta);
     }
 

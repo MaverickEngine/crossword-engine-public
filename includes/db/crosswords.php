@@ -16,11 +16,7 @@ class CrosswordEngineCrosswords {
     public function load() {
         require_once("crossword.php");
         global $wpdb;
-        $crossword_table_name = $wpdb->prefix . "crosswordengine_crosswords";
-        $sql = "SELECT * FROM $crossword_table_name";
-        $sql .= " ORDER BY " . $this->opts["order_by"] . " " . $this->opts["order"];
-        $sql .= " LIMIT " . $this->opts["limit"] . " OFFSET " . $this->opts["offset"];
-        $crosswords = $wpdb->get_results($sql);
+        $crosswords = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->prefix}crosswordengine_crosswords ORDER BY %s %s LIMIT %d OFFSET %d", [$this->opts["order_by"], $this->opts["order"], $this->opts["limit"], $this->opts["offset"]]));
         foreach ($crosswords as $crossword) {
             $this->crosswords[] = new CrosswordEngineCrossword($crossword->ID, $crossword);
         }
@@ -46,5 +42,3 @@ class CrosswordEngineCrosswords {
         return $crosswords;
     }
 }
-
-?>
