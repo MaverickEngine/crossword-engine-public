@@ -5,7 +5,7 @@
  * Description: MavEngine's CrosswordEngine is a professional, slick, cross-platform crossword puzzle creator and client for news publishers.
  * Author: Daily Maverick, Jason Norwood-Young
  * Author URI: https://dailymaverick.co.za
- * Version: 0.1.13
+ * Version: 0.1.14
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * WC requires at least: 5.8.0
