@@ -26,4 +26,3 @@ class CrosswordEngineShortcode {
         return $crossword_creator->generate();
     }
 }
-?>

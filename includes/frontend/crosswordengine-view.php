@@ -21,7 +21,8 @@ class CrosswordEngineView {
             $crossword_html .= '<div class="crossword-editor">Editor: ' . $crossword->get('editor') . '</div>';
             $crossword_html .= '<div class="crossword-author">Author: ' . $crossword->get('author') . '</div>';
         }
-        $crossword_html .= '<div id="' . $random_id . '">Loading...</div>';
+        $embed = get_site_url() . '/crossword-engine/embed/' . $this->id;
+        $crossword_html .= '<div id="' . $random_id . '" data-embed="' . $embed . '">Loading...</div>';
         $plugin_dir = plugin_dir_url( __FILE__ );
         wp_add_inline_script( "crosswordengine-jxword-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
         $product_name = esc_attr(get_option('crosswordengine_name'));
