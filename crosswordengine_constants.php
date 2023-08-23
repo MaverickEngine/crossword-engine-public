@@ -1,3 +1,2 @@
 <?php
 const CROSSWORDENGINE_DB_VERSION = 0.3;
-?>
