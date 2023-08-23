@@ -21,13 +21,20 @@ class CrosswordEngineView {
             $crossword_html .= '<div class="crossword-editor">Editor: ' . $crossword->get('editor') . '</div>';
             $crossword_html .= '<div class="crossword-author">Author: ' . $crossword->get('author') . '</div>';
         }
-        $embed = get_site_url() . '/crossword-engine/embed/' . $this->id . "?share_url=" . urlencode(get_permalink());
+        if (isset($_GET['share_url']) && $_GET['share_url']) {
+            $link = urldecode($_GET['share_url']);
+        } else {
+            $link = get_permalink();
+        }
+        $embed = get_site_url() . '/crossword-engine/embed/' . $this->id . "?share_url=" . urlencode($link);
         $crossword_html .= '<div id="' . $random_id . '" data-embed="' . $embed . '">Loading...</div>';
         $plugin_dir = plugin_dir_url( __FILE__ );
         wp_add_inline_script( "crosswordengine-jxword-script", "add_crossword('" . base64_encode($crossword->get("xd_data")) . "', '$random_id')", "after" );
         $product_name = esc_attr(get_option('crosswordengine_name'));
         wp_add_inline_script( "crosswordengine-jxword-script", "jxword_product_name=\"{$product_name}\";", "after" );
         wp_add_inline_script( "crosswordengine-jxword-script", "jxword_completed_audio=\"{$plugin_dir}../../dist/audio/crossword_ditty.mp3\";", "after" );
+        $permalink = get_permalink();
+        wp_add_inline_script( "crosswordengine-jxword-script", "jxword_permalink=\"{$permalink}\";", "after" );
         return $crossword_html;
     }
 
