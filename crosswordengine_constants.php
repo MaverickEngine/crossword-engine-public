@@ -1,2 +1,5 @@
 <?php
 const CROSSWORDENGINE_DB_VERSION = 0.3;
+const CROSSWORDENGINE_SECTION = "crosswords";
+const CROSSWORDENGINE_POST_TYPE = "article";
+const CROSSWORDENGINE_TAXONOMY = "article_tag";

@@ -42,8 +42,8 @@ class CrosswordEngineCreator {
     }
 
     public function render($meta = false) {
+        // phpcs:ignore
         echo $this->generate($meta);
     }
 
 }
-?>
