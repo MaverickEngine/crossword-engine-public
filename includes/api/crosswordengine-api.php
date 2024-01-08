@@ -11,6 +11,7 @@ class CrosswordEngineAPI {
         register_rest_route( 'crosswordengine/v1', '/crosswords', [
             'methods' => 'GET',
             'callback' => [ $this, 'get_crosswords' ],
+			'permission_callback' => '__return_true'
         ]);
     }
 
